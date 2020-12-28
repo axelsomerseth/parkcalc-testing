@@ -1,3 +1,11 @@
+## Run tests via NPM
+test:
+	@npm test
+
+## Run tests standalone
+test-st:
+	@./node_modules/.bin/cucumber-js
+
 ## build-container: Build docker container
 build-container:
 	@docker build --pull --rm -f "Dockerfile" -t parkcalc-testing:latest "." 

@@ -1,0 +1,30 @@
+{
+	"name": "parkcalc-testing",
+	"version": "1.0.0",
+	"description": "Create automated tests to demonstrate the functionality AND bugs of the following web application: ​http://www.shino.de/parkcalc/",
+	"main": "index.js",
+	"dependencies": {},
+	"devDependencies": {
+		"cucumber": "^7.0.0"
+	},
+	"scripts": {
+		"test": "cucumber-js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/axelsomerseth/parkcalc-testing.git"
+	},
+	"keywords": [
+		"testing",
+		"automated-testing",
+		"cucumber",
+		"qa",
+		"automation"
+	],
+	"author": "Axel Somerseth Cordova",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/axelsomerseth/parkcalc-testing/issues"
+	},
+	"homepage": "https://github.com/axelsomerseth/parkcalc-testing#readme"
+}

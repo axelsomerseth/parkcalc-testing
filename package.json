@@ -5,7 +5,11 @@
 	"main": "index.js",
 	"dependencies": {},
 	"devDependencies": {
-		"cucumber": "^7.0.0"
+		"@cucumber/cucumber": "^7.0.0",
+		"chai": "^4.2.0",
+		"chromedriver": "^87.0.5",
+		"eslint": "^7.18.0",
+		"selenium-webdriver": "^4.0.0-alpha.8"
 	},
 	"scripts": {
 		"test": "cucumber-js"

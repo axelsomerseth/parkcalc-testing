@@ -1,5 +1,5 @@
 Feature: How much for Valet Parking?
-	Everybody wants to know how much for the valet parking
+	The user wants to know how much for the valet parking
 
 	Scenario Outline: Valet Parking
 		Given I am calculating the parking cost
@@ -10,3 +10,5 @@ Feature: How much for Valet Parking?
 		| entryDate | entryTime | entryAMPM | leavingDate | leavingTime | leavingAMPM 	| rate 		| 
 		| 1/16/2021 | 8:00 		| AM 		| 1/16/2021   | 11:00 		| AM 			| $ 12.00 	| 
 		| 1/15/2021 | 8:00 		| AM 		| 1/16/2021   | 8:00 		| AM 			| $ 18.00 	| 
+		# | 1/15/2021 | 8:00 		| AM 		| 1/16/2021   | 11:00 		| AM 			| $ 30.00 	| 
+		| 1/15/2021 | 8:00 		| AM 		| 1/17/2021   | 8:00 		| AM 			| $ 36.00 	| 

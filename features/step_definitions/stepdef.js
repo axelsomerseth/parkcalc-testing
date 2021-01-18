@@ -9,10 +9,6 @@ const capabilities = Capabilities.chrome();
 capabilities.set('chromeOptions', { "w3c": false });
 const driver = new Builder().withCapabilities(capabilities).build();
 
-Given('I am calculating the parking cost', async function () {
-    await driver.get('https://www.shino.de/parkcalc/index.php');
-});
-
 const fillEntryDateAndTime = async function (entryDate, entryTime, entryAMPM) {
 	// entryDate
 	const entryDateElem = await driver.findElement(By.id('StartingDate'));
@@ -39,7 +35,11 @@ const fillLeavingDateAndTime = async function (leavingDate, leavingTime, leaving
 	// leavingAMPM
 	const leavingAMPMElem = await driver.findElement(By.name('LeavingTimeAMPM'));
 	leavingAMPMElem.sendKeys(leavingAMPM);
-}
+};
+
+Given('I am calculating the parking cost', {timeout: 6 * 1000}, async function () {
+    await driver.get('https://www.shino.de/parkcalc/index.php');
+});
 
 When('I ask how much is for the valet parking from {string} {string} {string} to {string} {string} {string}', async function (entryDate, entryTime, entryAMPM, leavingDate, leavingTime, leavingAMPM) {
 	// select valet parking value
@@ -56,6 +56,29 @@ When('I ask how much is for the valet parking from {string} {string} {string} to
 });
 
 Then('The estimated parking cost should be {string}', {timeout: 60 * 1000}, async function (rate) {
+	const result = await driver.findElement(By.css('span')).getText();
+	expect(result).to.equal(rate);
+});
+
+Given('I am calculating the hourly parking cost', {timeout: 6 * 1000}, async function () {
+    await driver.get('https://www.shino.de/parkcalc/index.php');
+});
+
+When('I ask how much is for the hourly parking from {string} {string} {string} to {string} {string} {string}', async function (entryDate, entryTime, entryAMPM, leavingDate, leavingTime, leavingAMPM) {
+	// select valet parking value
+	const parkingLotSelect = await driver.findElement(By.id('ParkingLot'));
+	await parkingLotSelect.sendKeys(Key.SPACE, 'short-term', Key.SPACE);
+
+	await fillEntryDateAndTime(entryDate, entryTime, entryAMPM);
+
+	await fillLeavingDateAndTime(leavingDate, leavingTime, leavingAMPM);
+
+	// submit info
+	const calculateButton = await driver.findElement(By.name('Submit'));
+	await calculateButton.submit();
+});
+
+Then('The estimated hourly parking cost should be {string}', {timeout: 60 * 1000}, async function (rate) {
 	const result = await driver.findElement(By.css('span')).getText();
 	expect(result).to.equal(rate);
 });

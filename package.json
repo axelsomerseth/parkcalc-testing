@@ -3,13 +3,12 @@
 	"version": "1.0.0",
 	"description": "Create automated tests to demonstrate the functionality AND bugs of the following web application: ​http://www.shino.de/parkcalc/",
 	"main": "index.js",
-	"dependencies": {},
 	"devDependencies": {
 		"@cucumber/cucumber": "^7.0.0",
-		"chai": "^4.2.0",
-		"chromedriver": "^87.0.5",
-		"eslint": "^7.18.0",
-		"selenium-webdriver": "^4.0.0-alpha.8"
+		"chai": "^4.3.4",
+		"chromedriver": "^89.0.0",
+		"eslint": "^7.22.0",
+		"selenium-webdriver": "^4.0.0-beta.2"
 	},
 	"scripts": {
 		"test": "cucumber-js"

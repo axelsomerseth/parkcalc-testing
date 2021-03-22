@@ -9,6 +9,7 @@ const capabilities = Capabilities.chrome();
 capabilities.set('chromeOptions', { "w3c": false });
 const driver = new Builder().withCapabilities(capabilities).build();
 
+// allows to fill out entry date and time fields (reused function in al test cases).
 const fillEntryDateAndTime = async function (entryDate, entryTime, entryAMPM) {
 	// entryDate
 	const entryDateElem = await driver.findElement(By.id('StartingDate'));
@@ -32,6 +33,7 @@ const fillEntryDateAndTime = async function (entryDate, entryTime, entryAMPM) {
 	}
 };
 
+// allows to fill out leaving date and time fields (reused function in al test cases).
 const fillLeavingDateAndTime = async function (leavingDate, leavingTime, leavingAMPM) {
 	// leavingDate
 	const leavingDateElem = await driver.findElement(By.id('LeavingDate'));
@@ -54,6 +56,7 @@ const fillLeavingDateAndTime = async function (leavingDate, leavingTime, leaving
 		leavingPMRadio.sendKeys();
 	}
 };
+
 
 // valet parking feature
 Given('I am calculating the valet parking cost', {timeout: 6 * 1000}, async function () {
@@ -154,6 +157,7 @@ Then('The estimated long-term surface parking cost should be {string}', {timeout
 	expect(result).to.equal(rate);
 });
 
+
 // economy surface parking feature
 Given('I am calculating the economy lot parking cost', {timeout: 6 * 1000}, async function () {
     await driver.get('https://www.shino.de/parkcalc/index.php');
@@ -177,6 +181,7 @@ Then('The estimated economy lot parking cost should be {string}', {timeout: 60 *
 	const result = await driver.findElement(By.css('span')).getText();
 	expect(result).to.equal(rate);
 });
+
 
 // close tests
 AfterAll(async function(){

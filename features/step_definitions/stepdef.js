@@ -14,13 +14,22 @@ const fillEntryDateAndTime = async function (entryDate, entryTime, entryAMPM) {
 	const entryDateElem = await driver.findElement(By.id('StartingDate'));
 	entryDateElem.clear();
 	entryDateElem.sendKeys(entryDate);
+
 	// entryTime
 	const entryTimeElem = await driver.findElement(By.id('StartingTime'));
 	entryTimeElem.clear();
 	entryTimeElem.sendKeys(entryTime);
+
 	// entryAMPM
-	const entryAMPMElem = await driver.findElement(By.name('StartingTimeAMPM'));
-	entryAMPMElem.sendKeys(entryAMPM);
+	const entryAMRadio = await driver.findElement(By.css('[name="StartingTimeAMPM"][value="AM"]'));
+	const entryPMRadio = await driver.findElement(By.css('[name="StartingTimeAMPM"][value="PM"]'));
+	if (entryAMPM === "AM") {
+		entryAMRadio.click();
+		entryAMRadio.sendKeys();
+	} else if (entryAMPM === "PM") {
+		entryPMRadio.click();
+		entryPMRadio.sendKeys();
+	}
 };
 
 const fillLeavingDateAndTime = async function (leavingDate, leavingTime, leavingAMPM) {
@@ -28,14 +37,25 @@ const fillLeavingDateAndTime = async function (leavingDate, leavingTime, leaving
 	const leavingDateElem = await driver.findElement(By.id('LeavingDate'));
 	leavingDateElem.clear();
 	leavingDateElem.sendKeys(leavingDate);
+
 	// leavingTime
 	const leavingTimeElem = await driver.findElement(By.id('LeavingTime'));
 	leavingTimeElem.clear();
 	leavingTimeElem.sendKeys(leavingTime);
+
 	// leavingAMPM
-	const leavingAMPMElem = await driver.findElement(By.name('LeavingTimeAMPM'));
-	leavingAMPMElem.sendKeys(leavingAMPM);
+	const leavingAMRadio = await driver.findElement(By.css('[name="LeavingTimeAMPM"][value="AM"]'));
+	const leavingPMRadio = await driver.findElement(By.css('[name="LeavingTimeAMPM"][value="PM"]'));
+	if (leavingAMPM === "AM") {
+		leavingAMRadio.click();
+		leavingAMRadio.sendKeys();
+	} else if (leavingAMPM === "PM") {
+		leavingPMRadio.click();
+		leavingPMRadio.sendKeys();
+	}
 };
+
+// valet parking feature
 
 Given('I am calculating the parking cost', {timeout: 6 * 1000}, async function () {
     await driver.get('https://www.shino.de/parkcalc/index.php');
@@ -60,6 +80,9 @@ Then('The estimated parking cost should be {string}', {timeout: 60 * 1000}, asyn
 	expect(result).to.equal(rate);
 });
 
+
+// short-term parking feature
+
 Given('I am calculating the hourly parking cost', {timeout: 6 * 1000}, async function () {
     await driver.get('https://www.shino.de/parkcalc/index.php');
 });
@@ -82,6 +105,15 @@ Then('The estimated hourly parking cost should be {string}', {timeout: 60 * 1000
 	const result = await driver.findElement(By.css('span')).getText();
 	expect(result).to.equal(rate);
 });
+
+
+// long-term garage parking feature
+
+
+// long-term surface parking feature
+
+
+// economy surface parking feature
 
 AfterAll(async function(){
     await driver.quit();

@@ -87,7 +87,10 @@ module.exports = {
         "max-lines-per-function": "error",
         "max-nested-callbacks": "error",
         "max-params": "warn",
-        "max-statements": "warn",
+        "max-statements": [
+            "warn",
+            { "max": 15 }
+        ],
         "max-statements-per-line": "error",
         "multiline-comment-style": "warn",
         "multiline-ternary": "error",

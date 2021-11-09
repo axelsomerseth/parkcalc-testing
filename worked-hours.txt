@@ -1,1 +1,9 @@
-Sunday December 27, 2020 => 30 min
+These are the working hours in this project. 
+
+Sunday, December 27, 2020 	=> 	0 hrs 40 mins
+Saturday, January 16, 2021 	=> 	0 hrs 10 mins
+Sunday, January 17, 2021 	=> 	0 hrs 30 mins
+Sunday, March 21, 2020 		=> 	3 hrs 20 mins
+
+*Time wasted trying to figure out how BDD works: 2 hrs
+*Estimated procrastination time while doing this project: 3 hrs

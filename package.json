@@ -1,33 +1,33 @@
 {
-	"name": "parkcalc-testing",
-	"version": "1.0.0",
-	"description": "Create automated tests to demonstrate the functionality AND bugs of the following web application: ​http://www.shino.de/parkcalc/",
-	"main": "index.js",
-	"devDependencies": {
-		"@cucumber/cucumber": "^7.0.0",
-		"chai": "^4.3.4",
-		"chromedriver": "^89.0.0",
-		"eslint": "^7.22.0",
-		"selenium-webdriver": "^4.0.0-beta.2"
-	},
-	"scripts": {
-		"test": "cucumber-js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/axelsomerseth/parkcalc-testing.git"
-	},
-	"keywords": [
-		"testing",
-		"automated-testing",
-		"cucumber",
-		"qa",
-		"automation"
-	],
-	"author": "Axel Somerseth Cordova",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/axelsomerseth/parkcalc-testing/issues"
-	},
-	"homepage": "https://github.com/axelsomerseth/parkcalc-testing#readme"
+    "name": "parkcalc-testing",
+    "version": "1.0.0",
+    "description": "Create automated tests to demonstrate the functionality AND bugs of the following web application: ​http://www.shino.de/parkcalc/",
+    "main": "index.js",
+    "devDependencies": {
+        "@cucumber/cucumber": "^7.3.1",
+        "chai": "^4.3.4",
+        "chromedriver": "^95.0.0",
+        "eslint": "^7.22.0",
+        "selenium-webdriver": "^4.0.0"
+    },
+    "scripts": {
+        "test": "cucumber-js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/axelsomerseth/parkcalc-testing.git"
+    },
+    "keywords": [
+        "testing",
+        "automated-testing",
+        "cucumber",
+        "qa",
+        "automation"
+    ],
+    "author": "Axel Somerseth Cordova",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/axelsomerseth/parkcalc-testing/issues"
+    },
+    "homepage": "https://github.com/axelsomerseth/parkcalc-testing#readme"
 }

@@ -11,7 +11,7 @@ application:
   - Automated Testing in a personal computer (*with chrome web browser).
 
 You can also:
-  - Know if the test were passed or not.
+  - Know if the tests were passed or not.
 
 This project is an implementation of [Cucumber](https://cucumber.io/). 
 
